@@ -1,7 +1,7 @@
 import { Selector } from "testcafe";
 import loginPage from "../pageObjects/loginPage";
 
-fixture`Users Guide Page`.page("./").skipJsErrors();
+fixture`Login Page`.page("./").skipJsErrors();
 
 test("Make Login", async (t) => {
   await t.maximizeWindow();

@@ -1,7 +1,7 @@
 import { ClientFunction, Selector } from "testcafe";
 import registerPage from "../pageObjects/registerPage";
 
-fixture`Users Guide Page`.page("./account/register");
+fixture`Register Page`.page("./account/register");
 
 test("Make Register", async (t) => {
   await t.maximizeWindow();
