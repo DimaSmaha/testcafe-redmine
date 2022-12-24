@@ -1,10 +1,11 @@
 import { ClientFunction, Selector } from "testcafe";
 import registerPage from "../pageObjects/registerPage";
 
-fixture`Register Page`.page("./account/register");
+fixture`Register Page`.page("./account/register").beforeEach(async (t) => {
+  await t.maximizeWindow();
+});
 
 test("Make Register", async (t) => {
-  await t.maximizeWindow();
   await registerPage.doRegister(
     registerPage.generateRandomLogin(),
     "qwerty",
@@ -16,7 +17,6 @@ test("Make Register", async (t) => {
 });
 
 test("Make Failed Register", async (t) => {
-  await t.maximizeWindow();
   await registerPage.doRegister(
     registerPage.generateRandomLogin(),
     "qwerty",
