@@ -1,4 +1,4 @@
-import { Selector } from "testcafe";
+import { ClientFunction, Selector } from "testcafe";
 import registerPage from "../pageObjects/registerPage";
 
 fixture`Users Guide Page`.page("./account/register");
@@ -25,4 +25,7 @@ test("Make Failed Register", async (t) => {
     registerPage.generateRandomLogin() + "gmail.com"
   );
   await t.expect(await registerPage.registerError.visible).ok();
+
+  const getLocation = ClientFunction(() => document.location.href);
+  await t.expect(getLocation()).contains("/account/register");
 });
